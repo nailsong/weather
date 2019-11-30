@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: weather
+  password: password1
+  encoding: utf8
+
+development:
+  <<: *default
+  database: weather_development
+
+test:
+  <<: *default
+  database: weather_test
+
+production:
+  <<: *default
+  database: weather_production
